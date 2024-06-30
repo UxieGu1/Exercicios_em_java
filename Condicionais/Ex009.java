@@ -1,4 +1,4 @@
-//9) [OBI 2021]
+//[OBI 2021]
 //Cibele, Camila e Celeste são três irmãs inseparáveis. Estão sempre juntas e adoram
 //        fazer esportes, ler, cozinhar, jogar no computador... Agora estão aprendendo a
 //programar computadores para desenvolverem seus próprios jogos.
