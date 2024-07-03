@@ -15,8 +15,8 @@ public class Ex007 {
         int estoque = 0;
         int caixa = 0;
         int lucro = 0;
-        int capacidadeMaxima = 100; // Defina a capacidade máxima do estoque aqui
-
+        int capacidadeMaxima = 100; 
+        
         while (true) {
             System.out.println("Escolha uma opção:");
             System.out.println("1. Comprar produto");
