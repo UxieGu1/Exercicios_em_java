@@ -8,7 +8,24 @@
 package Funcoes;
 
 public class ex007 {
-    public static void main(String[] args) {
+    public static int contar_a(String frase){
+        int contador_a = 0;
+        for (int i = 0; i < frase.length(); i++) {
+            if (frase.charAt(i) == 'a' || frase.charAt(i) == 'A') {
+                contador_a++;
+            }
+        }
+        return contador_a;
+    }
+    public static void desconto(int valor_desconto, float preco){
+        float desconto = preco * (valor_desconto / 100.0f);
+        float novo_preco = preco - desconto;
+        System.out.printf("O valor do desconto é: %.2f%n", desconto);
+        System.out.printf("O preço a ser pago será: %.2f%n", novo_preco);
 
+    }
+    public static void main(String[] args) {
+        int desconto_percentual = contar_a("morgana linda");
+        desconto(desconto_percentual, 1000);
     }
 }
