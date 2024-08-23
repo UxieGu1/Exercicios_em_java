@@ -1,0 +1,34 @@
+package classes;
+
+public class Main{
+    public static void main(String[] args) {
+        //[1,2,3,4,5] --> [1,5]
+        //[2334454,5] --> [5,2334454]
+        //[1]         --> [1,1]
+        
+        int [] numbers = {1,2,3,4,5};
+        int [] numbersTwo = {2334454,5};
+        int [] numbersThree = {1};
+        minMax(numbers);
+        minMax(numbersTwo);
+        minMax(numbersThree);
+    }
+    public static void minMax(int [] array){
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        if (array.length == 0) {
+            System.out.println("Array is empty.");
+            return;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] > max) {
+                max = array[i];
+            }
+            if(array[i] < min) {
+                min = array[i];
+            }
+        }
+        System.out.println("["+ min + ", " + max + "]");
+    }
+}
