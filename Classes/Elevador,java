@@ -1,0 +1,122 @@
+// Crie uma classe Elevador para armazenar as informações de um elevador de prédio. 
+// A classe deve armazenar o andar atual (térreo = 0), total de andares no prédio (desconsiderando o térreo), 
+// capacidade do elevador e quantas pessoas estão presentes nele. A classe deve também disponibilizar os seguintes métodos:
+
+// Inicializar: que deve receber como parâmetros a capacidade do elevador e o total de andares no prédio 
+//(os elevadores sempre começam no térreo e vazio);
+// Entrar: para acrescentar uma pessoa no elevador (só deve acrescentar se ainda houver espaço);
+// Sair: para remover uma pessoa do elevador (só deve remover se houver alguém dentro dele);
+// Subir: para subir um andar (não deve subir se já estiver no último andar);
+// Descer: parad escer um andar (não deve descer se já estiver no térreo);
+// Obs.: Encapsular todos os atributos da classe (criar os métodos set e get).
+
+public class Elevador {
+
+    private int andarAtual;
+    private int totalAndares;
+    private int capacidade;
+    private int qtdPessoas;
+
+    public Elevador(int capacidade, int totalAndares) {
+        this.andarAtual = 0; 
+        this.totalAndares = totalAndares;
+        this.capacidade = capacidade;
+        this.qtdPessoas = 0; 
+    }
+
+    public void entrar(int numeroPessoas) {
+        if (numeroPessoas < 0) {
+            System.out.println("Número de pessoas não pode ser negativo.");
+            return;
+        }
+        if (qtdPessoas + numeroPessoas <= capacidade) {
+            qtdPessoas += numeroPessoas;
+        } else {
+            System.out.println("Não há espaço suficiente no elevador.");
+        }
+    }
+
+    public void sair(int numeroPessoas) {
+        if (numeroPessoas < 0) {
+            System.out.println("Número de pessoas não pode ser negativo.");
+            return;
+        }
+        if (qtdPessoas - numeroPessoas >= 0) {
+            qtdPessoas -= numeroPessoas;
+        } else {
+            System.out.println("Não há pessoas suficientes no elevador para sair.");
+            qtdPessoas = 0;
+        }
+    }
+
+    public void subir() {
+        if (andarAtual < totalAndares) {
+            andarAtual++;
+        } else {
+            System.out.println("Elevador já está no último andar.");
+        }
+    }
+
+    public void descer() {
+        if (andarAtual > 0) {
+            andarAtual--;
+        } else {
+            System.out.println("Elevador já está no térreo.");
+        }
+    }
+
+    public int getAndarAtual() {
+        return andarAtual;
+    }
+
+    public void setAndarAtual(int andarAtual) {
+        if (andarAtual >= 0 && andarAtual <= totalAndares) {
+            this.andarAtual = andarAtual;
+        } else {
+            System.out.println("Número do andar inválido.");
+        }
+    }
+
+    public int getTotalAndares() {
+        return totalAndares;
+    }
+
+    public void setTotalAndares(int totalAndares) {
+        if (totalAndares >= 0) {
+            this.totalAndares = totalAndares;
+        } else {
+            System.out.println("Número de andares inválido.");
+        }
+    }
+
+    public int getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(int capacidade) {
+        if (capacidade > 0) {
+            this.capacidade = capacidade;
+        } else {
+            System.out.println("Capacidade deve ser maior que zero.");
+        }
+    }
+
+    public int getQtdPessoas() {
+        return qtdPessoas;
+    }
+
+    public void setQtdPessoas(int qtdPessoas) {
+        if (qtdPessoas >= 0 && qtdPessoas <= capacidade) {
+            this.qtdPessoas = qtdPessoas;
+        } else {
+            System.out.println("Número de pessoas inválido.");
+        }
+    }
+    public static void main(String[] args) {
+        Elevador obj = new Elevador(10, 12);
+        obj.entrar(1);
+        obj.sair(5);
+        obj.subir();
+        obj.subir();
+    }
+}
