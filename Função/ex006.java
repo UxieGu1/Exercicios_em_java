@@ -3,21 +3,29 @@
 
 package Funcoes;
 
+//Crie uma função que receba como entrada uma string e retorne “É palíndromo” se a string for
+//um palíndromo e “Não é palíndromo” caso contrário.
+
+
+import java.util.Scanner;
+
 public class ex006 {
-//    static String palindromo(String word){
-//        String palavra_original = word;
-//        String palavra_reversa = "";
-//
-//        for (int i = 0; i < palavra_original.length(); i++) {
-//            palavra_reversa = palavra_original.charAt(i) + palavra_reversa;
-//        }
-//        if(palavra_reversa == palavra_original){
-//            System.out.println("É palíndromo!");
-//        } else {
-//            System.out.println("Não é palíndromo!");
-//        }
-//    }
-//    public static void main(String[] args) {
-//
-//    }
+    public static String palindromo(String texto){
+        String textoInvertido = new StringBuilder(texto).reverse().toString().toLowerCase();
+
+        if (texto.equals(textoInvertido)){
+            return "É palíndromo!";
+        }else {
+            return "Não é palíndromo!";
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Digite um texto: ");
+        String txt = scan.next();
+        System.out.println(palindromo(txt));
+
+    }
 }
